@@ -1,15 +1,14 @@
-------------------------
-Purpose of SampleEnclave
-------------------------
+
+# Helloworld Enclave    
+
 The project demonstrates several fundamental usages of Intel(R) Software Guard 
 Extensions (Intel(R) SGX) SDK:
 - Initializing and destroying an enclave
 - Creating ECALLs or OCALLs
 - Calling trusted libraries inside the enclave
 
-------------------------------------
-How to Build/Execute the Sample Code
-------------------------------------
+#### How to Build/Execute the Sample Code   
+
 1. Install Intel(R) SGX SDK for Linux* OS
 2. Make sure your environment is set:
     $ source ${sgx-sdk-install-path}/environment
@@ -30,9 +29,8 @@ How to Build/Execute the Sample Code
     $ ./app
 5. Remember to "make clean" before switching build mode
 
-------------------------------------------
-Explanation about Configuration Parameters
-------------------------------------------
+#### Explanation about Configuration Parameters
+
 TCSMaxNum, TCSNum, TCSMinPool
 
     These three parameters will determine whether a thread will be created
@@ -60,18 +58,18 @@ HeapMaxSize, HeapInitSize, HeapMinSize
 
     HeapInitSize is here for compatibility.
 
--------------------------------------------------    
-Sample configuration files for the Sample Enclave
--------------------------------------------------
+#### Sample configuration files for the Sample Enclave
+
 config.01.xml: There is no dynamic thread, no dynamic heap expansion.
 config.02.xml: There is no dynamic thread. But dynamic heap expansion can happen.
 config.03.xml: There are dynamic threads. For a dynamic thread, there's no stack expansion.
 config.04.xml: There are dynamic threads. For a dynamic thread, stack will expanded as necessary.
 
--------------------------------------------------
-Launch token initialization
--------------------------------------------------
+#### Launch token initialization
+
 If using libsgx-enclave-common or sgxpsw under version 2.4, an initialized variable launch_token needs to be passed as the 3rd parameter of API sgx_create_enclave. For example,
 
 sgx_launch_token_t launch_token = {0};
 sgx_create_enclave(ENCLAVE_FILENAME, SGX_DEBUG_FLAG, launch_token, NULL, &global_eid, NULL);
+
+---
